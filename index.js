@@ -1,46 +1,61 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyArgrQQIB65MdcsqDnZE8Vs-POBy5OwaUY",
-  authDomain: "fir-connect-5dd25.firebaseapp.com",
-  projectId: "fir-connect-5dd25",
-  storageBucket: "fir-connect-5dd25.appspot.com",
-  messagingSenderId: "426090292848",
-  appId: "1:426090292848:web:e42f1f4cdd580882a5b6b5"
+    apiKey: "AIzaSyD1ZqsN6iy7ZSu5XIsdiVWibyzOCCFrx48",
+    authDomain: "stories-a21bc.firebaseapp.com",
+    projectId: "stories-a21bc",
+    storageBucket: "stories-a21bc.appspot.com",
+    messagingSenderId: "198542325082",
+    appId: "1:198542325082:web:d030bd2d532f35aabe6f63",
+    measurementId: "G-Z54MV2JB0H"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+const auth = getAuth(app);
 
-const googleButton = document.querySelector(".container");
-const connectedContainer = document.querySelector(".connected");
-const logoutButton = document.querySelector(".connected-button");
+// Getting the elements
+const emailInput = document.querySelector("#user_email")
+const emailError = document.querySelector("#email_error")
+const passwordInput = document.querySelector("#user_password")
+const passwordError = document.querySelector("#password_error")
+const formButton = document.querySelector(".submit_button")
+const googleButton = document.querySelector(".google_button")
 
-connectedContainer.style.display = "none";
-googleButton.addEventListener("click", () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).then(() => {
-        alert("Signed in successfully")
-        googleButton.style.display = "none";
-        connectedContainer.style.display = "flex";
-    }).catch((err) => {
-        alert("Signed in unsuccessfully")
-        googleButton.style.display = "flex";
-        connectedContainer.style.display = "none";
+formButton.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    // Form Validation
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.+[a-zA-Z0-9-]*$/;
+    if (!emailInput.value.match(validRegex)) {
+        emailError.innerText = "Enter a valid email"
+        return
+    }
+    emailError.innerText = ""
+
+    if (passwordInput.value.toString().length < 5) {
+        passwordError.innerText = "Password length must be greater than 5"
+        return
+    }
+    passwordError.innerText = ""
+
+    createUserWithEmailAndPassword(auth, emailInput.value, passwordInput.value).then((user) => {
+        window.location.href = "/home.html"
+    }).catch((error) => {
+        alert("User not created")
+        console.log(error)
     })
 })
 
-logoutButton.addEventListener("click", () => {
-    signOut(auth).then(() => {
-        alert("Signout successfully")
-        connectedContainer.style.display = "none";
-        googleButton.style.display = "flex";
-    }).catch(() => {
-        alert("Failed to logout")
-        connectedContainer.style.display = "flex";
-        googleButton.style.display = "none";
+googleButton.addEventListener("click",  (e) => {
+    e.preventDefault();
+
+    const provider = new GoogleAuthProvider()
+    signInWithPopup(auth, provider).then((user) => {
+        window.location.href = "/home.html"
+    }).catch(error => {
+        alert("Not signed in")
+        console.log(error)
     })
 })

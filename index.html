@@ -6,27 +6,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./index.css">
-    <title>Firebase Connect</title>
-    <script src="./index.js" type="module" defer></script>
+    <link rel="stylesheet" href="/index.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <title>Connect Firebase</title>
 </head>
 <body>
-    <!-- Will be shown when the user is unauthenticated -->
-    <button class="container">
-        <div class="container-logo">
-            <svg width="100%" height="100%" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24.9998 13.1935C24.9998 12.3441 24.9253 11.5376 24.7976 10.7527H12.7712V15.6021H19.6571C19.3485 17.1935 18.4439 18.5376 17.1029 19.4516V22.6774H21.211C23.6163 20.4301 24.9998 17.1183 24.9998 13.1935Z" fill="#4285F4"/>
-                <path d="M12.7713 25.8064C16.2195 25.8064 19.1038 24.6452 21.211 22.6774L17.1029 19.4516C15.9535 20.2258 14.4954 20.6989 12.7713 20.6989C9.44007 20.6989 6.61972 18.4301 5.60865 15.3656H1.3728V18.6882C3.46944 22.9032 7.77978 25.8064 12.7713 25.8064Z" fill="#34A853"/>
-                <path d="M5.60877 15.3656C5.3427 14.5914 5.20434 13.7634 5.20434 12.9032C5.20434 12.043 5.35334 11.215 5.60877 10.4409V7.11827H1.37292C0.500213 8.86021 0 10.8172 0 12.9032C0 14.9892 0.500213 16.9462 1.37292 18.6882L5.60877 15.3656Z" fill="#FBBC05"/>
-                <path d="M12.7713 5.10753C14.6551 5.10753 16.3366 5.76344 17.667 7.04301L21.3068 3.36559C19.1038 1.27957 16.2195 0 12.7713 0C7.77979 0 3.46944 2.90323 1.3728 7.11828L5.60865 10.4409C6.61972 7.37634 9.44007 5.10753 12.7713 5.10753Z" fill="#EA4335"/>
-            </svg>
-        </div>
-        <p class="container-text">Continue with Google</p>
-    </button>
-    <!-- Will be displayed when the user has been successfuly authenticated -->
-    <section class="connected">
-        <h1 class="connected-title">Connected</h1>
-        <button class="connected-button">Logout</button>
-    </section>
+    <main class="get_started">
+        <iconify-icon icon="logos:firebase" class="logo"></iconify-icon>
+        <section class="main_content">
+            <form action="" class="user_form">
+                <input 
+                    type="email"
+                    placeholder="Enter your email..."
+                    required
+                    class="user_input"
+                    id="user_email"
+                />
+                <p class="user_error" id="email_error"></p>
+                <input 
+                    type="password"
+                    placeholder="Enter your password..."
+                    required
+                    class="user_input"
+                    id="user_password"
+                />
+                <p class="user_error" id="password_error"></p>
+                <button type="submit" class="submit_button">Continue</button>
+            </form>
+            <span class="line_break">or</span>
+            <button class="google_button">
+                <iconify-icon icon="flat-color-icons:google" class="google_icon"></iconify-icon>
+                <span class="google_text">Continue with Google</span>
+            </button>
+        </section>
+    </main>
+    <script type="module" src="/index.js"></script>
 </body>
 </html>

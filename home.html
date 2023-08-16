@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script type="module" src="/home.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="main_title">Tell a story</h1>
+    <main class="content">
+        <section class="container">
+            <form class="form">
+                <section class="form_header">
+                    <div class="user_icon"></div>
+                    <input 
+                        type="text"
+                        placeholder="Enter your name..."
+                        required
+                        class="user_name"
+                    />
+                </section>
+                <textarea
+                    placeholder="Enter your story"
+                    required
+                    class="user_story"
+                ></textarea>
+                <div class="form_footer">
+                    <button type="submit" class="submit_button">Post story</button>
+                    <span class="logout">logout</span>
+                </div>
+            </form>
+        </section>
+        <section class="display">
+            <section class="story">
+                <header class="story_header">
+                    <div class="user_photo"></div>
+                    <h3 class="username">Awonke : Contawo</h3>
+                </header>
+                <p class="story_text">Be the first person to add a story and inspire others to becoming better versions of themselves.</p>
+                <section class="story_footer">
+                    <iconify-icon icon="uiw:date" class="date_icon"></iconify-icon>
+                    <span class="date">15 Mar 2023</span>
+                </section>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

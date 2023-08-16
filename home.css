@@ -1,0 +1,189 @@
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --grey: rgb(136, 136, 136);
+    --red: rgb(207, 7, 7);
+    --primary: rgb(221, 160, 45);
+
+    --radius: 10px;
+    --bold: 700;
+    --pitch: 900;
+    --normal: 400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100dvh;
+    width: 100dvw;
+    overflow-x: hidden;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+}
+
+.main_title {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    height: 90%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.form_header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: .5rem;
+}
+
+.user_icon {
+    height: 1.9rem;
+    width: 1.9rem;
+    border-radius: 50%;
+    background-color: var(--grey);
+}
+
+.user_name {
+    padding: .3rem;
+    font-size: .9rem;
+    outline: none;
+    border-radius: calc(var(--radius) / 2);
+    border: 1px solid var(--grey);
+    width: 100%
+}
+
+.user_story {
+    height: 10rem;
+    padding: .5rem;
+    outline: none;
+    border-radius: calc(var(--radius) / 2);
+    border: 1px solid var(--grey);
+}
+
+.form_footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.submit_button {
+    padding: .6rem;
+    background-color: var(--primary);
+    outline: none;
+    border: none;
+    border-radius: calc(var(--radius) / 2);
+    cursor: pointer;
+    color: var(--white);
+    font-size: .8rem;
+    font-weight: var(--bold);
+}
+
+.logout {
+    cursor: pointer;
+    font-weight: var(--bold);
+    color: var(--red);
+    font-size: 1rem;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    gap: .8rem;
+}
+
+.story {
+    padding: .8rem;
+    border: 1px solid var(--grey);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: 100%;
+}
+
+.story_header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: .5rem
+}
+
+.user_photo {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--grey);
+}
+
+.username {
+    font-size: 1.1rem;
+}
+
+.story_text {
+    font-size: .9rem;
+}
+
+.story_footer {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .5rem;
+}
+
+.date_icon {
+    font-size: .8rem;
+    color: var(--primary);
+}
+
+.date {
+    font-size: .8rem;
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .container {
+        height: 60%;
+    }
+    .main_title {
+        font-size: 1.8rem;
+        font-weight: var(--pitch);
+        margin-top: 1.5rem;
+    }
+    .username {
+        font-size: 1rem;
+    }
+    .date {
+        font-size: .6rem;
+    }
+}
