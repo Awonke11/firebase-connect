@@ -130,6 +130,14 @@ body {
     color: var(--white);
 }
 
+.login {
+    text-decoration: none;
+    color: var(--primary);
+    margin-top: 1rem;
+    font-weight: var(--bold);
+    font-size: 1rem;
+}
+
 @media screen and (max-width: 480px) {
     .get_started {
         width: 90%;

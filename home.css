@@ -186,4 +186,7 @@ body {
     .date {
         font-size: .6rem;
     }
+    .display {
+        margin-top: 1rem;
+    }
 }
